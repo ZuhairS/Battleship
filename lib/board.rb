@@ -44,13 +44,13 @@ class Board
   end
 
   def display
-    (0..10).each do |row|
-      (0..10).each do |col|
+    (0...10).each do |row|
+      (0...10).each do |col|
         pos = [row, col]
-        print "#{self[pos]} "
-        print "| " unless col == 10
+        self[pos].nil? ? (print "   ") : (print " #{self[pos]} ")
+        print "|" unless col == 10
       end
-      puts "\n--------------------" unless row == 10
+      puts "\n----------------------------------------" unless row == 10
     end
   end
 

@@ -22,12 +22,28 @@ class BattleshipGame
     attack(@player.get_play)
   end
 
-  def play
+  def display
+    @board.display
+  end
 
+  def setup
+    @board.populate_grid
+  end
+
+  def play
+    puts "Thank you for playing Battleship: The Game"
+    setup
+    display
+    until game_over?
+      play_turn
+      display
+    end
+    puts "\nWell done! You destroyed all the ships!\n"
   end
 
 end
 
 if __FILE__ == $PROGRAM_NAME
-  
+  new_game = BattleshipGame.new(player, board)
+  new_game.play
 end
