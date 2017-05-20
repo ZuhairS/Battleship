@@ -1,3 +1,6 @@
+require_relative 'board.rb'
+require_relative 'player.rb'
+
 class BattleshipGame
   attr_reader :player, :board
 
@@ -44,6 +47,8 @@ class BattleshipGame
 end
 
 if __FILE__ == $PROGRAM_NAME
+  player = HumanPlayer.new("Zuhair")
+  board = Board.new
   new_game = BattleshipGame.new(player, board)
   new_game.play
 end
